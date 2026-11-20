@@ -3234,17 +3234,22 @@ function prepareFirmware() {
     const meta = window.MCFirmwareImages ? window.MCFirmwareImages[edition] : window.MCFixedMainImageMeta;
     if (meta.requiresSyntakt !== false && !st.syntakt) { st.fw = null; st.fwError = "needs_syntakt"; return; }
     const release = meta.release || window.MC_RELEASES[0].version;
-    const fixedKey = `fixed-main:${edition}:${release}:${meta.syxSha256}:${os.sha}:${st.syntakt ? st.syntakt.version : "none"}`;
+    const cheddar = release === "3.06" && $("boot-animation")?.checked;
+    const fixedKey = `fixed-main:${edition}:${release}:${meta.syxSha256}:${os.sha}:${st.syntakt ? st.syntakt.version : "none"}:${cheddar ? "cheddar" : "title"}`;
     const makeFixed = () => (window.MCFirmwareImageLoad ? window.MCFirmwareImageLoad(edition) : window.MCFixedMainImageLoad ? window.MCFixedMainImageLoad() : window.MCFixedMainImageReady).then((source) => {
       const raw = source.slice();
       const hash = window.MCBuilder.hex(window.MCBuilder.sha256(raw));
       if (hash !== meta.syxSha256) throw new Error("Verified main firmware image checksum mismatch");
       // Pinned images above ~16,140 packets carry an overflowed SysEx sequence number: same stream, re-wrapped (notes/222).
-      const fixedRaw = window.MCBuilder.rewrap(raw);
+      const boot = cheddar ? window.MCBootCheddar.apply(raw, window.MCBootCheddarData) : null;
+      const fixedRaw = boot ? boot.raw : window.MCBuilder.rewrap(raw);
       const verified = window.MCFlasher.verify(fixedRaw);
       if (!verified.count) throw new Error("Verified main firmware image has no valid SYX packets");
-      return { raw: fixedRaw, name: meta.downloadName || `Supermodel_${edition === "lite" ? "Lite_" : ""}${release}.syx`, kind: "built", mods: [meta.productName || "Supermodel"],
-        sha: meta.mainOsSha, ref: true, modsRef: true, sixch: true, edition };
+      const name = meta.downloadName || `Supermodel_${edition === "lite" ? "Lite_" : ""}${release}.syx`;
+      const mods = [meta.productName || "Supermodel"];
+      if (boot) mods.push("Cheddar Butt");
+      return { raw: fixedRaw, name: boot ? name.replace(/\.syx$/i, "_Cheddar_Butt.syx") : name, kind: "built", mods,
+        sha: boot ? boot.mainOsSha : meta.mainOsSha, ref: !boot, modsRef: true, sixch: true, edition };
     });
     if (!onSamples()) { buildCached(fixedKey, makeFixed); return; }
     const smp = st.samplesOs;
@@ -3604,6 +3609,8 @@ function missingReason() {
 
 function render() {
   if(window.MCOptionalRender)window.MCOptionalRender(st);
+  const bootChoice = $("boot-animation");
+  if (bootChoice) bootChoice.disabled = st.sending;
   const editionChoice = $("firmware-edition");
   if (editionChoice) { editionChoice.value = st.edition; editionChoice.disabled = st.sending; }
   if (st.mode === "mods") chosenTweaks();
@@ -3991,6 +3998,7 @@ function setEdition(edition) {
   return true;
 }
 function wireSupermodel() {
+  $("boot-animation")?.addEventListener("change", update);
   $('firmware-edition').addEventListener('change',event=>setEdition(event.target.value));
   const advanced=document.createElement('details');advanced.className='super-advanced';advanced.innerHTML='<summary><span data-l="en">Machine, official firmware & compatibility options</span><span data-l="fr">Machine, firmware officiel et compatibilité</span></summary>';
   $('step-choose').appendChild(advanced);
