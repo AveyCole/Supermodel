@@ -1,11 +1,11 @@
 {
   "release": "3.06",
-  "build_revision": "delay-labels386",
+  "build_revision": "sequencer-directions",
   "hardware_tested": false,
   "previous_blank_build_rejected_by_label_test": true,
   "editions": {
     "main_full": {
-      "sha256": "45914e449cd4ef75d56c1f083fcb7b77efa7fae749731547fd5bf77929cd77f5",
+      "sha256": "c80f037e0de65c963ba6ebd2d7bb634cdf1607e84518c48cfbf9e94386050307",
       "live_cases": 20,
       "queued_request_deferred": true,
       "general_registers_preserved": true,
@@ -20,7 +20,7 @@
       "only_seven_label_strings_changed": true
     },
     "main_lite": {
-      "sha256": "f73d11874910a70e1ca36e868c0c7347ecba4062656b5547e2eb52d0a97a60b3",
+      "sha256": "88938b52c7b03ac203af3d440dc8acc0ea8529077d41be8d2b020527efc76a39",
       "live_cases": 20,
       "queued_request_deferred": true,
       "general_registers_preserved": true,
@@ -35,7 +35,7 @@
       "only_seven_label_strings_changed": true
     },
     "optional_full": {
-      "sha256": "91e2003f49f4bd5386f2f551cd5ac2330f912d63f68d3702fa4b62204f576da4",
+      "sha256": "9526e133ff623a7b4df0eb262e220a18244612ff72cdcf5972168bb5c85ca977",
       "live_cases": 20,
       "queued_request_deferred": true,
       "general_registers_preserved": true,
@@ -50,7 +50,7 @@
       "only_seven_label_strings_changed": true
     },
     "optional_lite": {
-      "sha256": "bec4ce45aca72d10ba263dc2f4e58f9104873fb5a58199e308fe742bbe4d701f",
+      "sha256": "841460b5fcd48e28a6aa648a462504eafd028b2cbe3f4babee78df20fbc3dde0",
       "live_cases": 20,
       "queued_request_deferred": true,
       "general_registers_preserved": true,

@@ -1,4 +1,4 @@
-/* 2026-11-06-main306-delay-labels : images verifiees par edition, caches et sources independants. */
+/* 2026-11-21-306-sequencer-directions : images verifiees par edition, caches et sources independants. */
 (()=>{
  "use strict";
  const catalogue={
@@ -6,9 +6,9 @@
     "id": "full",
     "productName": "Supermodel",
     "release": "3.06",
-    "file": "Supermodel_Full_3.06_45914e449cd4.syx",
-    "syxSha256": "45914e449cd4ef75d56c1f083fcb7b77efa7fae749731547fd5bf77929cd77f5",
-    "mainOsSha": "c89b54be8c60ca7537eb58b3c98ffc1424b2de3d9a3d7888733ed5f650ebe335",
+    "file": "Supermodel_Full_3.06_c80f037e0de6.syx",
+    "syxSha256": "c80f037e0de65c963ba6ebd2d7bb634cdf1607e84518c48cfbf9e94386050307",
+    "mainOsSha": "9d86d93f023c239121adbf4465758bed144ab9c47ea844dc2898ef78f96b2494",
     "requiresSyntakt": true,
     "source_build": 215,
     "new_clear_filter_defaults": true,
@@ -105,7 +105,7 @@
     "track_swap_levels_16bit": true,
     "track_swap_context_guard": true,
     "fx_live_pattern_switch_fixed": true,
-    "build_revision": "delay-labels386",
+    "build_revision": "sequencer-directions",
     "telephone_delay_removed": true,
     "wizard_pan_hold_func": true,
     "wizard_numeric_level_and_pan": true
@@ -114,9 +114,9 @@
     "id": "lite",
     "productName": "Supermodel Lite",
     "release": "3.06",
-    "file": "Supermodel_Lite_3.06_f73d11874910.syx",
-    "syxSha256": "f73d11874910a70e1ca36e868c0c7347ecba4062656b5547e2eb52d0a97a60b3",
-    "mainOsSha": "bb2f90d0d1b9b834b13de56834eb35292040cb6ce350476bce765ee51229c79e",
+    "file": "Supermodel_Lite_3.06_88938b52c7b0.syx",
+    "syxSha256": "88938b52c7b03ac203af3d440dc8acc0ea8529077d41be8d2b020527efc76a39",
+    "mainOsSha": "fe3a1fa5fed906c39d7a7c00ba94ef6800ab85a205d1ed2a19914e64cdd0d55e",
     "requiresSyntakt": false,
     "source_build": 216,
     "new_clear_filter_defaults": true,
@@ -207,7 +207,7 @@
     "track_swap_levels_16bit": true,
     "track_swap_context_guard": true,
     "fx_live_pattern_switch_fixed": true,
-    "build_revision": "delay-labels386",
+    "build_revision": "sequencer-directions",
     "telephone_delay_removed": true,
     "wizard_pan_hold_func": true,
     "wizard_numeric_level_and_pan": true
@@ -218,7 +218,7 @@
  const pending=new Map();
  async function load(meta){
   const sources=[new URL(meta.file,window.location.href).href,
-   "https://raw.githubusercontent.com/AveyCole/Supermodel/fcfe8e67a421585a4d84f9672a2ca56ac93c9a9b/docs/flasher/"+meta.file];
+   "https://raw.githubusercontent.com/AveyCole/Supermodel/87d235caec775139831bae313eb1d6b96f0cb3e0/docs/flasher/"+meta.file];
   let failure;
   for(const url of sources)try{
    const response=await fetch(url,{cache:"no-store"});
