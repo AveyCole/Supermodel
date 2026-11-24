@@ -1,4 +1,4 @@
-/* 2026-11-24-307-sample-browser : images verifiees par edition, caches et sources independants. */
+/* 2026-11-24-307-mod-setup : images verifiees par edition, caches et sources independants. */
 (()=>{
  "use strict";
  const catalogue={
@@ -6,9 +6,9 @@
     "id": "full",
     "productName": "Supermodel",
     "release": "3.07",
-    "file": "Supermodel_Full_3.07_b71b44893c15.syx",
-    "syxSha256": "b71b44893c1577afd6c3e2c55419488768ae31c278ab6d3c1374e45b568d614d",
-    "mainOsSha": "b709e654befe6aff38d3f07815ecaf816ed64e96bbaaef498cfc5e1f70a93a3b",
+    "file": "Supermodel_Full_3.07_8c1d2b19ba9e.syx",
+    "syxSha256": "8c1d2b19ba9e3a8e2257c65d5e3b08cb3fe42e3cb20afde19f2f49d899804ea8",
+    "mainOsSha": "e857c6fdcd982cfb44b1cb3107b259c49ed929f802f3d5862b5b565281ff0761",
     "requiresSyntakt": true,
     "source_build": 215,
     "new_clear_filter_defaults": true,
@@ -121,9 +121,9 @@
     "id": "lite",
     "productName": "Supermodel Lite",
     "release": "3.07",
-    "file": "Supermodel_Lite_3.07_43a3d8e54afe.syx",
-    "syxSha256": "43a3d8e54afe0a03b832f7f3cca7c3c0b039e9f4e3ced44c75f3a5be143eaf42",
-    "mainOsSha": "dd9556167c1b94223e971280bb072a69a6b66dcdfa3450a9ac95dbd3b4d85962",
+    "file": "Supermodel_Lite_3.07_9ed4260e2761.syx",
+    "syxSha256": "9ed4260e276123a8949b35930a2b8b2500dd6b60adf04192967c528ba5d20e55",
+    "mainOsSha": "b9940459ed8285a65202ed1c54a874bb0d9b898cd69fb2fa57a1edadf3ba1377",
     "requiresSyntakt": false,
     "source_build": 216,
     "new_clear_filter_defaults": true,
@@ -232,7 +232,7 @@
  const pending=new Map();
  async function load(meta){
   const sources=[new URL(meta.file,window.location.href).href,
-   "https://raw.githubusercontent.com/AveyCole/Supermodel/c19fa9f0ad69b210d15b712871cd71b920801116/docs/flasher/"+meta.file];
+   "https://raw.githubusercontent.com/AveyCole/Supermodel/44634633804ce1740b589367f5f3874b6701d6ce/docs/flasher/"+meta.file];
   let failure;
   for(const url of sources)try{
    const response=await fetch(url,{cache:"no-store"});
