@@ -1,4 +1,4 @@
-/* 2026-11-24-307-mod-setup : images verifiees par edition, caches et sources independants. */
+/* 2026-11-24-307-quick-save : images verifiees par edition, caches et sources independants. */
 (()=>{
  "use strict";
  const catalogue={
@@ -6,9 +6,9 @@
     "id": "full",
     "productName": "Supermodel",
     "release": "3.07",
-    "file": "Supermodel_Full_3.07_8c1d2b19ba9e.syx",
-    "syxSha256": "8c1d2b19ba9e3a8e2257c65d5e3b08cb3fe42e3cb20afde19f2f49d899804ea8",
-    "mainOsSha": "e857c6fdcd982cfb44b1cb3107b259c49ed929f802f3d5862b5b565281ff0761",
+    "file": "Supermodel_Full_3.07_a55aa1349299.syx",
+    "syxSha256": "a55aa1349299c16a8c68c520dab9be803d07bea7ea2a68b445ff6cb4a2b09473",
+    "mainOsSha": "79585baf6c7174d29acfb81727cdb6fb22ba7eb9694ca1b9ff616761edb11881",
     "requiresSyntakt": true,
     "source_build": 215,
     "new_clear_filter_defaults": true,
@@ -105,7 +105,7 @@
     "track_swap_levels_16bit": true,
     "track_swap_context_guard": true,
     "fx_live_pattern_switch_fixed": true,
-    "build_revision": "sample-browser",
+    "build_revision": "quick-save-retrig",
     "telephone_delay_removed": true,
     "wizard_pan_hold_func": true,
     "wizard_numeric_level_and_pan": true,
@@ -121,9 +121,9 @@
     "id": "lite",
     "productName": "Supermodel Lite",
     "release": "3.07",
-    "file": "Supermodel_Lite_3.07_9ed4260e2761.syx",
-    "syxSha256": "9ed4260e276123a8949b35930a2b8b2500dd6b60adf04192967c528ba5d20e55",
-    "mainOsSha": "b9940459ed8285a65202ed1c54a874bb0d9b898cd69fb2fa57a1edadf3ba1377",
+    "file": "Supermodel_Lite_3.07_64b57d5a9f44.syx",
+    "syxSha256": "64b57d5a9f443765e45e5a83695f815c50c3adf2318d1741c40c794e4ba795a2",
+    "mainOsSha": "4e4aa5f70b5f7a21b3ab25deabf698b2e578dc6c6de6ca10fe1cc5d97663d16f",
     "requiresSyntakt": false,
     "source_build": 216,
     "new_clear_filter_defaults": true,
@@ -214,7 +214,7 @@
     "track_swap_levels_16bit": true,
     "track_swap_context_guard": true,
     "fx_live_pattern_switch_fixed": true,
-    "build_revision": "sample-browser",
+    "build_revision": "quick-save-retrig",
     "telephone_delay_removed": true,
     "wizard_pan_hold_func": true,
     "wizard_numeric_level_and_pan": true,
@@ -232,7 +232,7 @@
  const pending=new Map();
  async function load(meta){
   const sources=[new URL(meta.file,window.location.href).href,
-   "https://raw.githubusercontent.com/AveyCole/Supermodel/44634633804ce1740b589367f5f3874b6701d6ce/docs/flasher/"+meta.file];
+   "https://raw.githubusercontent.com/AveyCole/Supermodel/5d8bd3f23506ada25c4f94ee8fd9c8b9ad12f393/docs/flasher/"+meta.file];
   let failure;
   for(const url of sources)try{
    const response=await fetch(url,{cache:"no-store"});

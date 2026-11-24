@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const root=path.resolve(__dirname,'..'),site=path.join(root,'docs/flasher'),b=require(path.join(site,'builder.js')),f=require(path.join(site,'flasher.js'));
 const hash=x=>crypto.createHash('sha256').update(x).digest('hex'),meta=JSON.parse(fs.readFileSync(path.join(site,'BUILD.json')));
 assert.equal(meta.release,'3.07');assert.deepEqual(Object.keys(meta.editions),['full','lite']);
-const pinned={"full": "8c1d2b19ba9e3a8e2257c65d5e3b08cb3fe42e3cb20afde19f2f49d899804ea8", "lite": "9ed4260e276123a8949b35930a2b8b2500dd6b60adf04192967c528ba5d20e55"};
+const pinned={"full": "a55aa1349299c16a8c68c520dab9be803d07bea7ea2a68b445ff6cb4a2b09473", "lite": "64b57d5a9f443765e45e5a83695f815c50c3adf2318d1741c40c794e4ba795a2"};
 for(const [id,m] of Object.entries(meta.editions)){
  const raw=fs.readFileSync(path.join(site,m.file));assert.equal(hash(raw),pinned[id]);assert.equal(hash(raw),m.syxSha256);assert(f.verify(raw).count>0);
  const pkg=b.parseContainer(b.unwrap(raw).stream),s=pkg.sections.find(x=>x.id===3),main=b.aplibDepack(pkg.blob.subarray(s.off,s.off+s.size),{bootLayout:true}).data;
