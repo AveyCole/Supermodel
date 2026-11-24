@@ -16,11 +16,11 @@ const elements={'[data-rel=history]':[history],'[data-rel=changes]':[changes],'[
 ctx.$$=selector=>elements[selector]||[];ctx.lang=()=>ctx.root.lang;
 const start=source.indexOf('function fmtDate('),end=source.indexOf('\nrenderRelease();',start);
 vm.runInContext(source.slice(start,end),ctx);
-const releases=ctx.window.MC_RELEASES;assert.equal(releases[0].version,'3.06');assert(releases.some(r=>r.version==='3.02'));
+const releases=ctx.window.MC_RELEASES;assert.equal(releases[0].version,'3.07');assert(releases.some(r=>r.version==='3.02'));
 for(const language of ['en','fr']){
  ctx.root.lang=language;ctx.renderRelease();
- assert.equal(version.textContent,'3.06');assert.equal(history.children.length,releases.length);
- assert.equal(history.children[0].open,true);assert(history.children[0].children[0].textContent.startsWith('3.06'));
+ assert.equal(version.textContent,'3.07');assert.equal(history.children.length,releases.length);
+ assert.equal(history.children[0].open,true);assert(history.children[0].children[0].textContent.startsWith('3.07'));
  assert.equal(history.children[0].children[1].children[0].textContent,releases[0].changes[0][language]);
  assert(history.children.some(section=>section.children[0].textContent.startsWith('3.02')));
  assert.equal(new Set(history.children.map(section=>section.id)).size,releases.length);

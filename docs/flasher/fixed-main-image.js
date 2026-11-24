@@ -1,14 +1,14 @@
-/* 2026-11-21-306-sequencer-directions : images verifiees par edition, caches et sources independants. */
+/* 2026-11-24-307-sample-browser : images verifiees par edition, caches et sources independants. */
 (()=>{
  "use strict";
  const catalogue={
   "full": {
     "id": "full",
     "productName": "Supermodel",
-    "release": "3.06",
-    "file": "Supermodel_Full_3.06_c80f037e0de6.syx",
-    "syxSha256": "c80f037e0de65c963ba6ebd2d7bb634cdf1607e84518c48cfbf9e94386050307",
-    "mainOsSha": "9d86d93f023c239121adbf4465758bed144ab9c47ea844dc2898ef78f96b2494",
+    "release": "3.07",
+    "file": "Supermodel_Full_3.07_b71b44893c15.syx",
+    "syxSha256": "b71b44893c1577afd6c3e2c55419488768ae31c278ab6d3c1374e45b568d614d",
+    "mainOsSha": "b709e654befe6aff38d3f07815ecaf816ed64e96bbaaef498cfc5e1f70a93a3b",
     "requiresSyntakt": true,
     "source_build": 215,
     "new_clear_filter_defaults": true,
@@ -19,11 +19,11 @@
     "inactive_fx_zero_bypass": true,
     "startup_title": {
       "name": "Supermodel",
-      "version": "3.06",
-      "edition": "3.06",
+      "version": "3.07",
+      "edition": "3.07",
       "code": 1074084460,
       "code_bytes": 794,
-      "sha256": "5fa92dfa6e85b04c941277efa109713bd5c6b44d74de02ecb52166b71fb1c4ca",
+      "sha256": "9044ddbbf00c74e0dde34edf35b21c2629f8aead39ddf7dff8be420696f48d16",
       "native_os_protocol_version_unchanged": true,
       "hardware_tested": false
     },
@@ -105,18 +105,25 @@
     "track_swap_levels_16bit": true,
     "track_swap_context_guard": true,
     "fx_live_pattern_switch_fixed": true,
-    "build_revision": "sequencer-directions",
+    "build_revision": "sample-browser",
     "telephone_delay_removed": true,
     "wizard_pan_hold_func": true,
-    "wizard_numeric_level_and_pan": true
+    "wizard_numeric_level_and_pan": true,
+    "sequencer_directions": true,
+    "sample_only_browser": true,
+    "hide_empty_folders": true,
+    "master_scramble": true,
+    "control_all_per_pattern": true,
+    "wizard_shared_filter": true,
+    "dual_intro": true
   },
   "lite": {
     "id": "lite",
     "productName": "Supermodel Lite",
-    "release": "3.06",
-    "file": "Supermodel_Lite_3.06_88938b52c7b0.syx",
-    "syxSha256": "88938b52c7b03ac203af3d440dc8acc0ea8529077d41be8d2b020527efc76a39",
-    "mainOsSha": "fe3a1fa5fed906c39d7a7c00ba94ef6800ab85a205d1ed2a19914e64cdd0d55e",
+    "release": "3.07",
+    "file": "Supermodel_Lite_3.07_43a3d8e54afe.syx",
+    "syxSha256": "43a3d8e54afe0a03b832f7f3cca7c3c0b039e9f4e3ced44c75f3a5be143eaf42",
+    "mainOsSha": "dd9556167c1b94223e971280bb072a69a6b66dcdfa3450a9ac95dbd3b4d85962",
     "requiresSyntakt": false,
     "source_build": 216,
     "new_clear_filter_defaults": true,
@@ -127,11 +134,11 @@
     "inactive_fx_zero_bypass": true,
     "startup_title": {
       "name": "Supermodel Lite",
-      "version": "3.06",
-      "edition": "LITE 3.06",
+      "version": "3.07",
+      "edition": "LITE 3.07",
       "code": 1074084460,
       "code_bytes": 856,
-      "sha256": "3576287a697487488ba9216f266cf8efe7fa1fd415c5753e5be7e38ab7200a03",
+      "sha256": "6ef1c8702baa3808d67d3cc992a5678f1d75d40a303bc7267a902c3ddadf2390",
       "native_os_protocol_version_unchanged": true,
       "hardware_tested": false
     },
@@ -207,10 +214,17 @@
     "track_swap_levels_16bit": true,
     "track_swap_context_guard": true,
     "fx_live_pattern_switch_fixed": true,
-    "build_revision": "sequencer-directions",
+    "build_revision": "sample-browser",
     "telephone_delay_removed": true,
     "wizard_pan_hold_func": true,
-    "wizard_numeric_level_and_pan": true
+    "wizard_numeric_level_and_pan": true,
+    "sequencer_directions": true,
+    "sample_only_browser": true,
+    "hide_empty_folders": true,
+    "master_scramble": true,
+    "control_all_per_pattern": true,
+    "wizard_shared_filter": true,
+    "dual_intro": true
   }
 };
  for(const meta of Object.values(catalogue))Object.freeze(meta);
@@ -218,7 +232,7 @@
  const pending=new Map();
  async function load(meta){
   const sources=[new URL(meta.file,window.location.href).href,
-   "https://raw.githubusercontent.com/AveyCole/Supermodel/87d235caec775139831bae313eb1d6b96f0cb3e0/docs/flasher/"+meta.file];
+   "https://raw.githubusercontent.com/AveyCole/Supermodel/c19fa9f0ad69b210d15b712871cd71b920801116/docs/flasher/"+meta.file];
   let failure;
   for(const url of sources)try{
    const response=await fetch(url,{cache:"no-store"});
